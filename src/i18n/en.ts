@@ -47,6 +47,7 @@ const en = {
     affiliateNote: "We may earn a commission when you buy through this link.",
     markExpired: "Mark as expired",
   },
+  theme: { toggle: "Theme", system: "System", light: "Light", dark: "Dark" },
   vote: { hot: "Hot", cold: "Cold", loginToVote: "Log in to vote" },
   temp: { cold: "Cold", neutral: "New", warm: "Warm", hot: "Hot", burning: "On fire" },
   post: {

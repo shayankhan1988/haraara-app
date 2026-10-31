@@ -68,12 +68,12 @@ export default async function ModPage({ params }: PageProps<"/[locale]/mod">) {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">{t.mod.queue} ({queue.length})</h2>
-        {queue.length === 0 && <p className="text-sm text-gray-500">{t.mod.empty}</p>}
+        {queue.length === 0 && <p className="text-sm text-gray-500 dark:text-zinc-400">{t.mod.empty}</p>}
         {queue.map((d) => (
           <div key={d.id} className="card flex flex-wrap items-center justify-between gap-3 p-4">
             <div className="min-w-0">
               <Link href={`/${locale}/deals/${d.id}`} className="font-semibold hover:underline" dir="auto">{d.title}</Link>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 dark:text-zinc-400">
                 {d.user.username} · {timeAgo(d.createdAt, t.time)} ·{" "}
                 <span dir="ltr">{new URL(d.url).hostname}</span>
               </p>
@@ -81,7 +81,7 @@ export default async function ModPage({ params }: PageProps<"/[locale]/mod">) {
             <div className="flex gap-2">
               <form action={approveDeal}>{hidden("locale", locale)}{hidden("dealId", d.id)}<button className="btn-primary">{t.mod.approve}</button></form>
               <form action={rejectDeal}>{hidden("locale", locale)}{hidden("dealId", d.id)}<button className="btn-ghost">{t.mod.reject}</button></form>
-              <form action={banUser}>{hidden("locale", locale)}{hidden("userId", d.user.id)}<button className="btn-ghost text-red-600">{t.mod.banUser}</button></form>
+              <form action={banUser}>{hidden("locale", locale)}{hidden("userId", d.user.id)}<button className="btn-ghost text-red-600 dark:text-red-400">{t.mod.banUser}</button></form>
             </div>
           </div>
         ))}
@@ -89,13 +89,13 @@ export default async function ModPage({ params }: PageProps<"/[locale]/mod">) {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">{t.mod.reports} ({reports.length})</h2>
-        {reports.length === 0 && <p className="text-sm text-gray-500">{t.mod.empty}</p>}
+        {reports.length === 0 && <p className="text-sm text-gray-500 dark:text-zinc-400">{t.mod.empty}</p>}
         {reports.map((r) => (
           <div key={r.id} className="card flex flex-wrap items-center justify-between gap-3 p-4 text-sm">
             <div className="min-w-0">
               {r.deal && <Link href={`/${locale}/deals/${r.deal.id}`} className="font-semibold hover:underline" dir="auto">{r.deal.title}</Link>}
-              {r.comment && <p className="mt-1 rounded bg-gray-50 p-2" dir="auto">“{r.comment.body}” — {r.comment.user.username}</p>}
-              <p className="mt-1 text-xs text-gray-500">{r.user.username}: <span dir="auto">{r.reason}</span> · {timeAgo(r.createdAt, t.time)}</p>
+              {r.comment && <p className="mt-1 rounded bg-gray-50 dark:bg-zinc-800 p-2" dir="auto">“{r.comment.body}” — {r.comment.user.username}</p>}
+              <p className="mt-1 text-xs text-gray-500 dark:text-zinc-400">{r.user.username}: <span dir="auto">{r.reason}</span> · {timeAgo(r.createdAt, t.time)}</p>
             </div>
             <div className="flex gap-2">
               {r.comment ? (

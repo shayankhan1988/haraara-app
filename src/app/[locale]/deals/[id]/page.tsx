@@ -46,14 +46,14 @@ export default async function DealPage({ params, searchParams }: PageProps<"/[lo
 
   return (
     <div className="flex flex-col gap-4">
-      {sp.posted === "live" && <p className="card border-brand-500 bg-brand-50 p-3 text-sm text-brand-700">{t.post.published}</p>}
-      {sp.posted === "queued" && <p className="card bg-amber-50 p-3 text-sm text-amber-800">{t.post.queued}</p>}
-      {sp.reported && <p className="card bg-gray-50 p-3 text-sm">{t.deal.reported}</p>}
+      {sp.posted === "live" && <p className="card border-brand-500 bg-brand-50 dark:bg-brand-700/25 p-3 text-sm text-brand-700 dark:text-brand-100">{t.post.published}</p>}
+      {sp.posted === "queued" && <p className="card bg-amber-50 dark:bg-amber-950/50 p-3 text-sm text-amber-800 dark:text-amber-300">{t.post.queued}</p>}
+      {sp.reported && <p className="card bg-gray-50 dark:bg-zinc-800 p-3 text-sm">{t.deal.reported}</p>}
 
       <article className="card flex flex-col gap-4 p-5 sm:flex-row">
         <DealImage src={deal.imageUrl} alt={deal.title} size={220} />
         <div className="flex min-w-0 flex-1 flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-zinc-400">
             <VoteBox
               dealId={deal.id}
               temperature={deal.temperature}
@@ -65,14 +65,14 @@ export default async function DealPage({ params, searchParams }: PageProps<"/[lo
             />
             <span className="font-semibold">{t.temp[level]}</span>
             <Link href={`/${locale}?cat=${deal.category.slug}`} className="underline">{category}</Link>
-            {deal.status === "PENDING" && <span className="rounded bg-amber-100 px-2 py-0.5 text-amber-800">{t.deal.pending}</span>}
-            {deal.status === "REJECTED" && <span className="rounded bg-red-100 px-2 py-0.5 text-red-800">{t.deal.rejected}</span>}
-            {expired && <span className="rounded bg-gray-200 px-2 py-0.5 text-gray-700">{t.deal.expired}</span>}
+            {deal.status === "PENDING" && <span className="rounded bg-amber-100 dark:bg-amber-950/50 px-2 py-0.5 text-amber-800 dark:text-amber-300">{t.deal.pending}</span>}
+            {deal.status === "REJECTED" && <span className="rounded bg-red-100 dark:bg-red-950/50 px-2 py-0.5 text-red-800 dark:text-red-300">{t.deal.rejected}</span>}
+            {expired && <span className="rounded bg-gray-200 dark:bg-zinc-700 px-2 py-0.5 text-gray-700 dark:text-zinc-300">{t.deal.expired}</span>}
           </div>
           <h1 className="text-2xl font-extrabold leading-tight" dir="auto">{deal.title}</h1>
           <div className="flex flex-wrap items-center gap-3">
             <Price price={toNumber(deal.price)} originalPrice={toNumber(deal.originalPrice)} currency={deal.currency} locale={locale} t={t} />
-            {deal.merchant && <span className="text-gray-600">{deal.merchant.name}</span>}
+            {deal.merchant && <span className="text-gray-600 dark:text-zinc-400">{deal.merchant.name}</span>}
           </div>
           <div className="flex flex-wrap items-center gap-2">
             {deal.couponCode && <CouponCode code={deal.couponCode} labels={t.deal} />}
@@ -80,8 +80,8 @@ export default async function DealPage({ params, searchParams }: PageProps<"/[lo
               {t.deal.getDeal} ↗
             </a>
           </div>
-          <p className="whitespace-pre-line text-gray-800" dir="auto">{deal.description}</p>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+          <p className="whitespace-pre-line text-gray-800 dark:text-zinc-200" dir="auto">{deal.description}</p>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-zinc-400">
             <span>
               {t.deal.postedBy} <b>{deal.user.username}</b> · {timeAgo(deal.publishedAt ?? deal.createdAt, t.time)}
             </span>
@@ -95,18 +95,18 @@ export default async function DealPage({ params, searchParams }: PageProps<"/[lo
               </form>
             )}
           </div>
-          <p className="text-xs text-gray-400">{t.deal.affiliateNote}</p>
+          <p className="text-xs text-gray-400 dark:text-zinc-500">{t.deal.affiliateNote}</p>
         </div>
       </article>
 
       <section className="card p-5">
         <h2 className="mb-3 text-lg font-bold">{t.deal.comments} ({deal.comments.length})</h2>
-        {deal.comments.length === 0 && <p className="text-sm text-gray-500">{t.deal.noComments}</p>}
-        <ul className="flex flex-col divide-y divide-black/5">
+        {deal.comments.length === 0 && <p className="text-sm text-gray-500 dark:text-zinc-400">{t.deal.noComments}</p>}
+        <ul className="flex flex-col divide-y divide-black/5 dark:divide-white/10">
           {deal.comments.map((c) => (
             <li key={c.id} className="py-3">
-              <div className="mb-1 flex items-center justify-between text-xs text-gray-500">
-                <span><b className="text-gray-700">{c.user.username}</b> · {timeAgo(c.createdAt, t.time)}</span>
+              <div className="mb-1 flex items-center justify-between text-xs text-gray-500 dark:text-zinc-400">
+                <span><b className="text-gray-700 dark:text-zinc-300">{c.user.username}</b> · {timeAgo(c.createdAt, t.time)}</span>
                 {user && user.id !== c.userId && (
                   <details>
                     <summary className="cursor-pointer">{t.deal.report}</summary>
@@ -140,7 +140,7 @@ export default async function DealPage({ params, searchParams }: PageProps<"/[lo
       </section>
 
       {user && !isOwner && deal.status === "PUBLISHED" && (
-        <details className="text-sm text-gray-500">
+        <details className="text-sm text-gray-500 dark:text-zinc-400">
           <summary className="cursor-pointer">{t.deal.report}</summary>
           <form action={reportContent} className="mt-2 flex max-w-md gap-2">
             <input type="hidden" name="locale" value={locale} />

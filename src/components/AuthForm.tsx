@@ -21,17 +21,17 @@ export function AuthForm({ mode, locale, t, next }: { mode: "login" | "register"
         <div>
           <label className="label" htmlFor="username">{t.username}</label>
           <input id="username" name="username" required minLength={3} maxLength={24} pattern="[A-Za-z0-9_]+" autoComplete="username" className="input" dir="ltr" />
-          <p className="mt-1 text-xs text-gray-500">{t.usernameHint}</p>
+          <p className="mt-1 text-xs text-gray-500 dark:text-zinc-400">{t.usernameHint}</p>
         </div>
       )}
       <div>
         <label className="label" htmlFor="password">{t.password}</label>
         <input id="password" name="password" type="password" required minLength={mode === "register" ? 8 : 1} autoComplete={mode === "login" ? "current-password" : "new-password"} className="input" dir="ltr" />
-        {mode === "register" && <p className="mt-1 text-xs text-gray-500">{t.passwordHint}</p>}
+        {mode === "register" && <p className="mt-1 text-xs text-gray-500 dark:text-zinc-400">{t.passwordHint}</p>}
       </div>
-      {state?.error && <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{state.error}</p>}
+      {state?.error && <p role="alert" className="rounded-lg bg-red-50 dark:bg-red-950/50 p-3 text-sm text-red-700 dark:text-red-300">{state.error}</p>}
       <button disabled={pending} className="btn-primary">{mode === "login" ? t.submitLogin : t.submitRegister}</button>
-      <p className="text-center text-sm text-gray-600">
+      <p className="text-center text-sm text-gray-600 dark:text-zinc-400">
         {mode === "login" ? t.noAccount : t.haveAccount}{" "}
         <Link className="underline" href={`/${locale}/${mode === "login" ? "register" : "login"}?next=${encodeURIComponent(next)}`}>
           {mode === "login" ? t.submitRegister : t.submitLogin}

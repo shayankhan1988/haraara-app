@@ -19,5 +19,5 @@ export function proxy(req: NextRequest) {
 
 export const config = {
   // Sla de affiliate-redirect, API, Next-bestanden en statische bestanden over.
-  matcher: ["/((?!go/|api/|_next/|manifest.webmanifest|sw.js|icons/|favicon.ico|robots.txt|offline.html).*)"],
+  matcher: ["/((?!go/|api/|_next/|manifest.webmanifest|sw.js|icons/|demo/|favicon.ico|robots.txt|offline.html).*)"],
 };

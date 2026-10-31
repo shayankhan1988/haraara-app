@@ -30,12 +30,12 @@ export default async function NotificationsPage({ params }: PageProps<"/[locale]
         )}
       </div>
       {items.length === 0 ? (
-        <p className="text-sm text-gray-500">{t.notifications.none}</p>
+        <p className="text-sm text-gray-500 dark:text-zinc-400">{t.notifications.none}</p>
       ) : (
-        <ul className="card divide-y divide-black/5">
+        <ul className="card divide-y divide-black/5 dark:divide-white/10">
           {items.map((n) => (
-            <li key={n.id} className={`p-4 text-sm ${n.read ? "" : "bg-brand-50"}`}>
-              <p className="text-xs text-gray-500">
+            <li key={n.id} className={`p-4 text-sm ${n.read ? "" : "bg-brand-50 dark:bg-brand-700/25"}`}>
+              <p className="text-xs text-gray-500 dark:text-zinc-400">
                 {t.notifications.matched}
                 {n.alert?.keyword ? ` “${n.alert.keyword}”` : ""} · {timeAgo(n.createdAt, t.time)}
               </p>

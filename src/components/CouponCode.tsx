@@ -14,11 +14,11 @@ export function CouponCode({ code, labels }: { code: string; labels: { copyCode:
           setTimeout(() => setCopied(false), 2000);
         } catch {}
       }}
-      className="inline-flex items-center gap-2 rounded-lg border-2 border-dashed border-brand-500 bg-brand-50 px-3 py-1.5 text-sm"
+      className="inline-flex items-center gap-2 rounded-lg border-2 border-dashed border-brand-500 bg-brand-50 dark:bg-brand-700/25 px-3 py-1.5 text-sm"
       title={labels.copyCode}
     >
-      <code className="font-mono font-bold tracking-wider text-brand-700" dir="ltr">{code}</code>
-      <span className="text-xs text-brand-700">{copied ? labels.copied : labels.copyCode}</span>
+      <code className="font-mono font-bold tracking-wider text-brand-700 dark:text-brand-100" dir="ltr">{code}</code>
+      <span className="text-xs text-brand-700 dark:text-brand-100">{copied ? labels.copied : labels.copyCode}</span>
     </button>
   );
 }

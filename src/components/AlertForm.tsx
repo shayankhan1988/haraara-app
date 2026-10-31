@@ -33,7 +33,7 @@ export function AlertForm({ locale, t, categories }: { locale: Locale; t: Dictio
         <label className="label" htmlFor="minTemperature">{t.minTemperature}</label>
         <input id="minTemperature" name="minTemperature" inputMode="numeric" className="input" dir="ltr" placeholder="0°" />
       </div>
-      {state?.error && <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700 sm:col-span-2">{state.error}</p>}
+      {state?.error && <p role="alert" className="rounded-lg bg-red-50 dark:bg-red-950/50 p-3 text-sm text-red-700 dark:text-red-300 sm:col-span-2">{state.error}</p>}
       <button disabled={pending} className="btn-primary sm:col-span-2 sm:justify-self-end">{t.add}</button>
     </form>
   );

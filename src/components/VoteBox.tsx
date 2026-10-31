@@ -18,7 +18,7 @@ type Props = {
 
 const colors = {
   cold: "text-cold",
-  neutral: "text-gray-500",
+  neutral: "text-gray-500 dark:text-zinc-400",
   warm: "text-amber-600",
   hot: "text-hot",
   burning: "text-hot",
@@ -44,14 +44,14 @@ export function VoteBox({ dealId, temperature, myVote, locale, canVote, disabled
 
   const level = temperatureLevel(state.temperature);
   return (
-    <div className="inline-flex items-center gap-1 rounded-full border border-black/10 bg-white px-1 py-0.5" aria-busy={pending}>
+    <div className="inline-flex items-center gap-1 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 px-1 py-0.5" aria-busy={pending}>
       <button
         type="button"
         onClick={() => cast(-1)}
         disabled={disabled}
         aria-pressed={state.myVote === -1}
         title={canVote ? labels.cold : labels.loginToVote}
-        className={`grid h-7 w-7 place-items-center rounded-full text-lg leading-none transition hover:bg-blue-50 disabled:opacity-40 ${state.myVote === -1 ? "bg-cold text-white hover:bg-cold" : "text-cold"}`}
+        className={`grid h-7 w-7 place-items-center rounded-full text-lg leading-none transition hover:bg-blue-50 dark:hover:bg-blue-950/50 disabled:opacity-40 ${state.myVote === -1 ? "bg-cold text-white hover:bg-cold" : "text-cold"}`}
       >
         <span aria-hidden>−</span>
         <span className="sr-only">{labels.cold}</span>
@@ -65,7 +65,7 @@ export function VoteBox({ dealId, temperature, myVote, locale, canVote, disabled
         disabled={disabled}
         aria-pressed={state.myVote === 1}
         title={canVote ? labels.hot : labels.loginToVote}
-        className={`grid h-7 w-7 place-items-center rounded-full text-lg leading-none transition hover:bg-red-50 disabled:opacity-40 ${state.myVote === 1 ? "bg-hot text-white hover:bg-hot" : "text-hot"}`}
+        className={`grid h-7 w-7 place-items-center rounded-full text-lg leading-none transition hover:bg-red-50 dark:hover:bg-red-950/50 disabled:opacity-40 ${state.myVote === 1 ? "bg-hot text-white hover:bg-hot" : "text-hot"}`}
       >
         <span aria-hidden>+</span>
         <span className="sr-only">{labels.hot}</span>

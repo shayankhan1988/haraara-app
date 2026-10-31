@@ -28,9 +28,9 @@ export function Price({
     <span className="inline-flex flex-wrap items-baseline gap-2">
       <span className="text-lg font-extrabold text-hot">{price === 0 ? t.deal.free : formatMoney(price, currency, locale)}</span>
       {originalPrice != null && originalPrice > price && (
-        <span className="text-sm text-gray-400 line-through">{formatMoney(originalPrice, currency, locale)}</span>
+        <span className="text-sm text-gray-400 dark:text-zinc-500 line-through">{formatMoney(originalPrice, currency, locale)}</span>
       )}
-      {pct != null && <span className="text-sm font-semibold text-gray-600" dir="ltr">−{pct}%</span>}
+      {pct != null && <span className="text-sm font-semibold text-gray-600 dark:text-zinc-400" dir="ltr">−{pct}%</span>}
     </span>
   );
 }
