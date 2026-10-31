@@ -1,6 +1,6 @@
-# Golf Deals — MVP
+# Haraara (حرارة) — MVP
 
-Communityplatform voor deals in de Golfstaten, te beginnen in de VAE. Leden plaatsen deals en kortingscodes, stemmen ze hot of cold, reageren, en krijgen alerts. Uitgaande klikken lopen via `/go/{id}`, zodat elke klik wordt geregistreerd en de affiliate-tag wordt toegevoegd.
+Haraara (Arabisch voor "hitte") is een communityplatform voor deals in de Golfstaten, te beginnen in de VAE. Leden plaatsen deals en kortingscodes, stemmen ze hot of cold, reageren, en krijgen alerts. Uitgaande klikken lopen via `/go/{id}`, zodat elke klik wordt geregistreerd en de affiliate-tag wordt toegevoegd.
 
 ## Wat zit erin
 

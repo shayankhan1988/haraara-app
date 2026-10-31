@@ -52,7 +52,7 @@ const log = (...a) => console.log("✓", ...a);
 
   // deal plaatsen (nieuwe gebruiker -> wachtrij)
   await p.goto(`${B}/en/deals/new`);
-  await p.fill("#url", "https://www.noon.com/uae-en/demo-galaxy");
+  await p.fill("#url", "https://www.noon.com/uae-en/demo-galaxy?run=" + Date.now());
   await p.fill("#title", "[Test] Galaxy S25 for AED 2,499 at noon");
   await p.fill("#price", "2499");
   await p.fill("#originalPrice", "3199");
@@ -82,7 +82,7 @@ const log = (...a) => console.log("✓", ...a);
   // admin heeft een alert op 'galaxy'? nee - gebruiker wel, maar gebruiker is zelf auteur -> geen melding.
   // admin plaatst een tweede deal (direct live) die de alert van de gebruiker raakt
   await a.goto(`${B}/en/deals/new`);
-  await a.fill("#url", "https://www.amazon.ae/dp/DEMO-GALAXY-BUDS");
+  await a.fill("#url", "https://www.amazon.ae/dp/DEMO-GALAXY-BUDS?run=" + Date.now());
   await a.fill("#title", "[Test] Galaxy Buds 3 for AED 399");
   await a.fill("#price", "399");
   await a.selectOption("#categoryId", { label: "Audio & headphones" });
@@ -104,6 +104,7 @@ const log = (...a) => console.log("✓", ...a);
   // affiliate redirect
   const resp = await p.request.get(`${B}/go/${dealId}`, { maxRedirects: 0 });
   log("go redirect", resp.status(), resp.headers()["location"]);
+  if (resp.status() !== 302) throw new Error("redirect failed");
 
   // Arabisch / RTL
   await p.goto(`${B}/ar`);

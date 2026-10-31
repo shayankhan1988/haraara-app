@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Golf Deals",
-    short_name: "Golf Deals",
+    name: "Haraara · حرارة",
+    short_name: "Haraara",
     description: "Community deals in the UAE",
     start_url: "/",
     display: "standalone",

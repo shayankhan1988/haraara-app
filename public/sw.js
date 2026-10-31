@@ -1,5 +1,5 @@
 // Eenvoudige service worker: netwerk eerst, bij geen verbinding de laatst opgeslagen pagina of de offlinepagina.
-const CACHE = "gd-v1";
+const CACHE = "haraara-v1";
 const OFFLINE = "/offline.html";
 
 self.addEventListener("install", (e) => {

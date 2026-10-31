@@ -13,7 +13,7 @@ export function LanguageSwitch({ locale, label }: { locale: Locale; label: strin
       href={href}
       hrefLang={other}
       onClick={() => {
-        document.cookie = `gd_locale=${other}; path=/; max-age=31536000; samesite=lax`;
+        document.cookie = `hr_locale=${other}; path=/; max-age=31536000; samesite=lax`;
       }}
       className="text-sm text-gray-600 hover:text-gray-900"
     >

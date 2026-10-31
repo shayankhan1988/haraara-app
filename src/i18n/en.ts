@@ -1,5 +1,5 @@
 const en = {
-  brand: "Golf Deals",
+  brand: "Haraara",
   tagline: "The best deals in the UAE, found and voted on by the community",
   nav: {
     home: "Deals",

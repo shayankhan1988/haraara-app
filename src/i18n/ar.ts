@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 // Eerste vertaling; laat een moedertaalspreker dit nakijken vóór de lancering.
 const ar: Dictionary = {
-  brand: "عروض الخليج",
+  brand: "حرارة",
   tagline: "أفضل العروض في الإمارات، يجدها المجتمع ويصوّت عليها",
   nav: {
     home: "العروض",

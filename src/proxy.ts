@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { DEFAULT_LOCALE, LOCALES } from "@/i18n/config";
 
 function preferredLocale(req: NextRequest) {
-  const cookie = req.cookies.get("gd_locale")?.value;
+  const cookie = req.cookies.get("hr_locale")?.value;
   if (cookie && (LOCALES as readonly string[]).includes(cookie)) return cookie;
   const accept = req.headers.get("accept-language") ?? "";
   return accept.toLowerCase().startsWith("ar") ? "ar" : DEFAULT_LOCALE;

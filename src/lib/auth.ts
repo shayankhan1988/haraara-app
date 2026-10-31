@@ -6,7 +6,7 @@ import type { Role } from "@prisma/client";
 import { db } from "./db";
 import { SESSION_DAYS } from "./config";
 
-const COOKIE = "gd_session";
+const COOKIE = "hr_session";
 
 function hashToken(token: string) {
   return createHash("sha256").update(token).digest("hex");
