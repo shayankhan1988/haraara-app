@@ -41,7 +41,7 @@ export default async function FeedPage({ params, searchParams }: PageProps<"/[lo
           <Link
             key={s}
             href={link({ sort: s, page: undefined })}
-            className={`rounded-full px-4 py-1.5 text-sm font-semibold ${s === sort ? "bg-brand-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"}`}
+            className={`rounded-full px-4 py-1.5 text-sm font-semibold ${s === sort ? "bg-brand-600 text-white" : "bg-white dark:bg-zinc-900 text-gray-700 dark:text-zinc-300 hover:bg-gray-50 dark:hover:bg-zinc-800"}`}
           >
             {t.feed[s]}
           </Link>
@@ -50,7 +50,7 @@ export default async function FeedPage({ params, searchParams }: PageProps<"/[lo
       <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1">
         <Link
           href={link({ cat: undefined, page: undefined })}
-          className={`whitespace-nowrap rounded-full border px-3 py-1 text-sm ${!category ? "border-brand-600 bg-brand-50 text-brand-700" : "border-black/10 bg-white text-gray-700"}`}
+          className={`whitespace-nowrap rounded-full border px-3 py-1 text-sm ${!category ? "border-brand-600 bg-brand-50 dark:bg-brand-700/25 text-brand-700 dark:text-brand-100" : "border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 text-gray-700 dark:text-zinc-300"}`}
         >
           {t.feed.all}
         </Link>
@@ -58,20 +58,20 @@ export default async function FeedPage({ params, searchParams }: PageProps<"/[lo
           <Link
             key={c.id}
             href={link({ cat: c.slug, page: undefined })}
-            className={`whitespace-nowrap rounded-full border px-3 py-1 text-sm ${category?.id === c.id ? "border-brand-600 bg-brand-50 text-brand-700" : "border-black/10 bg-white text-gray-700"}`}
+            className={`whitespace-nowrap rounded-full border px-3 py-1 text-sm ${category?.id === c.id ? "border-brand-600 bg-brand-50 dark:bg-brand-700/25 text-brand-700 dark:text-brand-100" : "border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 text-gray-700 dark:text-zinc-300"}`}
           >
             {locale === "ar" ? c.nameAr : c.nameEn}
           </Link>
         ))}
       </div>
       {q && (
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 dark:text-zinc-400">
           {t.feed.resultsFor} <b dir="auto">“{q}”</b> ·{" "}
           <Link href={link({ q: undefined, page: undefined })} className="underline">{t.feed.clear}</Link>
         </p>
       )}
       {deals.length === 0 ? (
-        <p className="card p-8 text-center text-gray-600">{t.feed.empty}</p>
+        <p className="card p-8 text-center text-gray-600 dark:text-zinc-400">{t.feed.empty}</p>
       ) : (
         deals.map((d) => (
           <DealCard

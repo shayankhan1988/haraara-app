@@ -15,7 +15,7 @@ export function LanguageSwitch({ locale, label }: { locale: Locale; label: strin
       onClick={() => {
         document.cookie = `hr_locale=${other}; path=/; max-age=31536000; samesite=lax`;
       }}
-      className="text-sm text-gray-600 hover:text-gray-900"
+      className="text-sm text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white"
     >
       {label}
     </Link>

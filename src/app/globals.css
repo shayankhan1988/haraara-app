@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Dark mode via een .dark-klasse op <html> (gezet door het themascript in de layout). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-50: #eefaf7;
   --color-brand-100: #d5f2ea;
@@ -21,8 +24,16 @@ body {
   color: #1c1f24;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+html.dark body {
+  background: #0d0f12;
+  color: #e6e8eb;
+}
+
 @utility card {
-  @apply rounded-xl border border-black/5 bg-white shadow-sm;
+  @apply rounded-xl border border-black/5 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-900 dark:shadow-none;
 }
 
 @utility btn {
@@ -32,11 +43,11 @@ body {
   @apply btn bg-brand-600 text-white hover:bg-brand-700;
 }
 @utility btn-ghost {
-  @apply btn border border-black/10 bg-white text-gray-800 hover:bg-gray-50;
+  @apply btn border border-black/10 bg-white text-gray-800 hover:bg-gray-50 dark:border-white/15 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800;
 }
 @utility input {
-  @apply w-full rounded-lg border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100;
+  @apply w-full rounded-lg border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:border-white/15 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:ring-brand-700/40;
 }
 @utility label {
-  @apply mb-1 block text-sm font-medium text-gray-700;
+  @apply mb-1 block text-sm font-medium text-gray-700 dark:text-zinc-300;
 }

@@ -32,7 +32,7 @@ export function DealCard({
         <DealImage src={deal.imageUrl} alt={deal.title} size={88} />
       </Link>
       <div className="flex min-w-0 flex-1 flex-col gap-2">
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500 dark:text-zinc-400">
           <VoteBox
             dealId={deal.id}
             temperature={deal.temperature}
@@ -57,10 +57,10 @@ export function DealCard({
             locale={locale}
             t={t}
           />
-          {deal.merchant && <span className="text-sm text-gray-600">{deal.merchant.name}</span>}
+          {deal.merchant && <span className="text-sm text-gray-600 dark:text-zinc-400">{deal.merchant.name}</span>}
         </div>
         <div className="mt-auto flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-gray-500 dark:text-zinc-400">
             {t.deal.postedBy} <b>{deal.user.username}</b> · 💬 {deal.commentCount}
           </span>
           <div className="flex flex-wrap items-center gap-2">

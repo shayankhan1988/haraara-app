@@ -50,6 +50,7 @@ const ar: Dictionary = {
     affiliateNote: "قد نحصل على عمولة عند الشراء عبر هذا الرابط.",
     markExpired: "وضع علامة منتهي",
   },
+  theme: { toggle: "المظهر", system: "حسب الجهاز", light: "فاتح", dark: "داكن" },
   vote: { hot: "ساخن", cold: "بارد", loginToVote: "سجّل الدخول للتصويت" },
   temp: { cold: "بارد", neutral: "جديد", warm: "دافئ", hot: "ساخن", burning: "مشتعل" },
   post: {

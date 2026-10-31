@@ -19,7 +19,7 @@ export function DealForm({ locale, t, categories }: { locale: Locale; t: Diction
       <div>
         <label className="label" htmlFor="title">{t.dealTitle}</label>
         <input id="title" name="title" required minLength={8} maxLength={140} className="input" dir="auto" />
-        <p className="mt-1 text-xs text-gray-500">{t.dealTitleHint}</p>
+        <p className="mt-1 text-xs text-gray-500 dark:text-zinc-400">{t.dealTitleHint}</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
@@ -47,7 +47,7 @@ export function DealForm({ locale, t, categories }: { locale: Locale; t: Diction
       <div>
         <label className="label" htmlFor="description">{t.description}</label>
         <textarea id="description" name="description" required minLength={10} rows={6} className="input" dir="auto" />
-        <p className="mt-1 text-xs text-gray-500">{t.descriptionHint}</p>
+        <p className="mt-1 text-xs text-gray-500 dark:text-zinc-400">{t.descriptionHint}</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
@@ -59,7 +59,7 @@ export function DealForm({ locale, t, categories }: { locale: Locale; t: Diction
           <input id="expiresAt" name="expiresAt" type="date" className="input" />
         </div>
       </div>
-      {state?.error && <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{state.error}</p>}
+      {state?.error && <p role="alert" className="rounded-lg bg-red-50 dark:bg-red-950/50 p-3 text-sm text-red-700 dark:text-red-300">{state.error}</p>}
       <button disabled={pending} className="btn-primary self-end px-6 py-3">{t.submit}</button>
     </form>
   );
