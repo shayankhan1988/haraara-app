@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Bewust uit: bijna elke pagina hangt af van de ingelogde gebruiker (cookies), dus alles rendert per verzoek.
   turbopack: {
     rules: {
       "*.css": {
