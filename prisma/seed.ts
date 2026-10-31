@@ -39,11 +39,16 @@ async function main() {
   }
 
   const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@example.com";
-  const adminPassword = process.env.SEED_ADMIN_PASSWORD ?? "changeme123";
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD ?? (process.env.VERCEL ? "" : "changeme123");
+  if (!adminPassword) {
+    // Online nooit een standaardwachtwoord gebruiken.
+    console.warn("SEED_ADMIN_PASSWORD ontbreekt: beheerder en demodeals worden overgeslagen.");
+    return;
+  }
   const admin = await db.user.upsert({
     where: { email: adminEmail },
     create: { email: adminEmail, username: "admin", role: "ADMIN", passwordHash: await hashPassword(adminPassword) },
-    update: { role: "ADMIN" },
+    update: { role: "ADMIN", passwordHash: await hashPassword(adminPassword) },
   });
 
   if (process.env.SEED_DEMO === "0") return;

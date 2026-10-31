@@ -39,7 +39,7 @@ export default async function DealPage({ params, searchParams }: PageProps<"/[lo
 
   const vote = (await myVotes(user?.id, [deal.id])).get(deal.id) ?? 0;
   const category = locale === "ar" ? deal.category.nameAr : deal.category.nameEn;
-  const pageUrl = `${process.env.APP_URL ?? ""}/${locale}/deals/${deal.id}`;
+  const pageUrl = `${process.env.APP_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "")}/${locale}/deals/${deal.id}`;
   const shareText = encodeURIComponent(`${deal.title} ${pageUrl}`);
   const expired = deal.status === "EXPIRED" || (deal.expiresAt != null && deal.expiresAt < new Date());
   const level = temperatureLevel(deal.temperature);

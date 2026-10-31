@@ -34,6 +34,13 @@ npm run dev                   # http://localhost:3000
 
 De seed maakt een beheerder aan: `admin@example.com` met wachtwoord `changeme123` (te wijzigen via `SEED_ADMIN_EMAIL` en `SEED_ADMIN_PASSWORD`). Met `SEED_DEMO=0` worden geen demodeals aangemaakt. Gebruik de demodata niet in productie.
 
+## Online zetten op Vercel
+
+1. Importeer de repo in Vercel (framework: Next.js wordt automatisch herkend).
+2. Voeg onder **Storage** een Postgres-database toe via Neon en koppel die aan het project. Dat zet `DATABASE_URL` en `DATABASE_URL_UNPOOLED`.
+3. Zet onder **Settings → Environment Variables**: `SEED_ADMIN_PASSWORD` (sterk wachtwoord), `CLICK_SALT` (willekeurige tekst) en eventueel `SEED_ADMIN_EMAIL`. Zet `SEED_DEMO=0` zodra je echte deals hebt.
+4. Deploy opnieuw. De build (`npm run vercel-build`) voert de migraties en de seed uit en bouwt daarna de app.
+
 ## Affiliate instellen
 
 Per winkel in de tabel `Merchant`:
